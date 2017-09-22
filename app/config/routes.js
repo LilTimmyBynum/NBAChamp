@@ -20,14 +20,22 @@ var IndexRoute = router.IndexRoute;
 
 // Reference the high-level components
 var Main = require("../components/Main");
-var Scrape = require("../components/children/Scrape");
-var Myarticles = require("../components/children/Myarticles");
-var Notes = require("../components/children/grandchildren/Notes");
-var GrandChild2 = require("../components/children/grandchildren/GrandChild2");
+// var Scrape = require("../components/children/Scrape");
+// var Myarticles = require("../components/children/Myarticles");
+// var Notes = require("../components/children/grandchildren/Notes");
+// var GrandChild2 = require("../components/children/grandchildren/GrandChild2");
 
-var History = require("../components/children/History");
+// var History = require("../components/children/History");
 
 var Admin = require("../components/children/Admin");
+var AdminLeague = require("../components/children/Adminchildren/AdminLeague");
+var AdminTeam = require("../components/children/Adminchildren/AdminTeam");
+var AdminPlayer = require("../components/children/Adminchildren/AdminPlayer");
+
+
+
+
+
 var User = require("../components/children/User");
 // import {User} from "../components/children/User";   // this doesn't work.....
 
@@ -39,22 +47,19 @@ module.exports = (
     <Route path="/" component={Main}>
 
     {/* If user selects Admin then show the appropriate component*/}
-      <Route path="Admin" component={Admin} />
+      <Route path="Admin" component={Admin}>
 
-    {/* If user selects Admin then show the appropriate component*/}
+    {/* If user selects League or Team or Player from the Admin window then show the appropriate component*/}
+      <Route path="AdminLeague" component={AdminLeague} />
+      <Route path="AdminTeam" component={AdminTeam} />    
+      <Route path="AdminPlayer" component={AdminPlayer} />
+
+      </Route>
+
+    {/* If user selects User then show the appropriate component*/}
       <Route path="User" component={User} />
 
-      {/* If user selects Myarticles then show the appropriate component*/}
-      <Route path="Myarticles" component={Myarticles} >      
-
-      {/* Child1 has its own Grandchildren options */}
-        <Route path="Notes" component={Notes} />
-        <IndexRoute component={Notes} />
-        </Route>
-
-      {/* If user selects Scrape then show the appropriate component*/}
-      <Route path="Scrape" component={Scrape} >
-      </Route>       
+             
       
 
       {/* If user selects any other path... we get the Home Route 

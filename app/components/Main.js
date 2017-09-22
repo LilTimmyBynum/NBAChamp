@@ -38,10 +38,10 @@ var Main = React.createClass({
   // The moment the page renders get the History
   componentDidMount: function() {
     // Get the latest history.
-    helpers.getMyArticles().then(function(response) {
+    helpers.getMyPlayers().then(function(response) {
       console.log(response);
       if (response !== this.state.history) {
-        console.log("Articles", response.data);
+        console.log("Players", response.data);
         this.setState({ history: response.data });
       }
     }.bind(this));
@@ -143,13 +143,13 @@ var Main = React.createClass({
 
   // function for user 
   pathUser() {
-    helpers.runArticleQuery().then(function(response) {
-      console.log(response);
-      if (response !== this.state.history) {
-        console.log("History", response.data);
-        this.setState({ history: response.data });
-      }
-    }.bind(this));
+    // helpers.runArticleQuery().then(function(response) {
+    //   console.log(response);
+    //   if (response !== this.state.history) {
+    //     console.log("History", response.data);
+    //     this.setState({ history: response.data });
+    //   }
+    // }.bind(this));
   },
 
  
@@ -169,25 +169,14 @@ var Main = React.createClass({
                 </ul>
             </div>
         </nav>
-        <Link to="/Admin"><button className="btn btn-primary btn-lg" onClick={this.pathAdmin}>Admin</button></Link>
+        <Link to="/Admin"><button className="btn btn-primary btn-lg" onClick="">Admin</button></Link>
        <Link to="/User"><button className="btn btn-danger btn-lg" onClick={this.pathUser}>User</button></Link>
-
-
-       <div>Tim</div>
-
-    {/*    <History history={this.state.history}/>
-           This code will dump the correct Child Component    */}
-          {this.props.children} 
-
-          <div>Bynum</div>
-
-        
-
-
-
-
-        
     </div>
+
+    <div>Main</div>
+    {/* This code will dump the correct Child Component    */}
+          {this.props.children}
+    <div>Main</div>
 </div>
     );
   }
