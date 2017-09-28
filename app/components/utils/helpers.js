@@ -55,8 +55,10 @@ var helper = {
   },
 
   // this gets a League summary for the Admin from the MySQL db
-  getAdminTeam: function() {
-    return axios.get("/team");
+  getAdminTeam: function(teamdata) {
+    console.log("....in helper........");
+    console.log(teamdata);
+    return axios.get("/team/" + teamdata);
   },
 
   // this gets all Players from the MySQL db

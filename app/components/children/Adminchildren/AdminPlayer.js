@@ -46,13 +46,46 @@ var AdminPlayer = React.createClass({
   },
 
   // Here we describe this component's render method
-  render: function() {    
+  render: function() {  
+
+    $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrainWidth: false, // Does not change width of dropdown to that of the activator
+      //hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+      stopPropagation: false // Stops event propagation
+    }
+  );
+
+
+
     return (
     	<div className="container">
       <div className="panel panel-default ">
         <div className="panel-heading">
-          <h3 className="panel-title text-center">AdminPlayer stuff goes here</h3>
+          <h3 className="panel-title text-center">NBA Player Overview</h3>
         </div>
+
+
+
+         
+  <a className='dropdown-button btn' href='#' data-activates='dropdown1'>Team</a>
+
+   
+  <ul id='dropdown1' className='dropdown-content'>
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li className="divider"></li>
+    <li><a href="#!">three</a></li>
+    <li><a href="#!"><i className="material-icons">view_module</i>four</a></li>
+    <li><a href="#!"><i className="material-icons">cloud</i>five</a></li>
+  </ul>
+
+
+
       </div>
       </div>
     );

@@ -1,4 +1,5 @@
 // Include Server Dependencies
+var path = require("path");
 var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
@@ -31,6 +32,9 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(methodOverride("_method"));
 
 app.use(express.static("public"));
+
+// using this for help loading static images
+// app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // -------------------------------------------------
 
@@ -198,12 +202,12 @@ app.get("/league", function(req, res) {
                     break;
 
                     case "Cavaliers": 
-                        CLE.points += seasonX[0].teams[0].average.points; 
+                        CLE.points += seasonX[0].teams[0].average.points;
                         CLE.rebounds += seasonX[0].teams[0].average.rebounds;
-                        CLE.rebounds += seasonX[0].teams[0].average.rebounds;
-                        CLE.rebounds += seasonX[0].teams[0].average.rebounds;
-                        CLE.rebounds += seasonX[0].teams[0].average.rebounds;
-                        CLE.rebounds += seasonX[0].teams[0].average.rebounds;
+                        CLE.assists += seasonX[0].teams[0].average.assists;
+                        CLE.blocks += seasonX[0].teams[0].average.blocks;
+                        CLE.steals += seasonX[0].teams[0].average.steals;
+                        CLE.turnovers += seasonX[0].teams[0].average.turnovers;
                     break;
 
                     case "Celtics": 
@@ -464,7 +468,7 @@ app.get("/league", function(req, res) {
             });            
             
             leagueArray.push(ROC, NYK, CLE, BOS, POR, GSW, IND, ORL, TOR, PHI, MEM, MIL, NOR, PHX, LAL, ATL, CHI, SAC, DET, BKN, OKC, MIA, DAL, UTA, CHA, SAN, DEN, LAC, MIN, WAS);
-            console.log(leagueArray);
+            // console.log(leagueArray);
 
             var leagueObject = {
                 league: leagueArray
@@ -476,12 +480,16 @@ app.get("/league", function(req, res) {
     
 
 // get all players of one team from the db... working with hardcoded team
-app.get("/team", function(req, res) {
-        var incomingTeam = "Knicks";
+app.get("/team/:myTeam", function(req, res) {
+
+        var incomingTeam = req.params.myTeam;
+        console.log(".... in server ....");
+        console.log(req.params.myTeam);
         var teamArray = [];
         var points, rebounds, assists, blocks, steals, turnovers;
     db.sequelize.query("SELECT * FROM `players` WHERE team = ? ", { replacements: [incomingTeam], type: db.sequelize.QueryTypes.SELECT})
       .then(dbTeam => {
+        
 
         dbTeam.forEach(dbPlayers => {
             var seasonX = JSON.parse(dbPlayers.seasons);

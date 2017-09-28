@@ -158,25 +158,21 @@ var Main = React.createClass({
   render: function() {
     return (
       <div className="container myContainer">
-    <div className="jumbotron">
+    <div className="jumbotron backPanel">
         
         <nav>
             <div className="nav-wrapper">
-                <a href="#!" className="brand-logo">NBA CHAMP</a>
-                <ul className="right hide-on-med-and-down">
-                    {/* !-- Dropdown Trigger -->  */}
-                    <li><a className="dropdown-button" href="#!" data-activates="dropdown1"><i className="material-icons right">contacts</i></a></li>
-                </ul>
+                <a href="#!" className="brand-logo">NBA CHAMP</a>                
             </div>
         </nav>
         <Link to="/Admin"><button className="btn btn-primary btn-lg" onClick="">Admin</button></Link>
        <Link to="/User"><button className="btn btn-danger btn-lg" onClick={this.pathUser}>User</button></Link>
     </div>
 
-    <div>Main</div>
+    
     {/* This code will dump the correct Child Component    */}
           {this.props.children}
-    <div>Main</div>
+    
 </div>
     );
   }

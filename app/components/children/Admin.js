@@ -60,9 +60,9 @@ getInitialState: function() {
   // Here we describe this component's render method
   render: function() {    
     return (
-      <div className="container">
-      <div className="jumbotron">
-      <div className="panel panel-default ">
+      <div className="container-fluid">
+      <div className="jumbotron backPanel">
+      <div className="panel panel-default backPanel">
         <div className="panel-heading">
           <h3 className="panel-title text-center">Admin stuff goes in here</h3>
           <Link to="/Admin/AdminLeague"><button className="btn btn-primary btn-lg" onClick="">League</button></Link>
@@ -71,10 +71,10 @@ getInitialState: function() {
         </div>
       </div>
       </div>
-      <div>Tim</div>
+      
       {/*    This code will dump the correct Child Component    */}
           {this.props.children}
-      <div>Bynum</div>
+      
       </div>
     );
   }
