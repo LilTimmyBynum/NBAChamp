@@ -9,6 +9,12 @@ var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../app/config/config.json')[env];
 var db        = {};
 
+var mysql = require('mysql');
+
+if(process.env.JAWSDB_URL) {
+  db = mysql.createConnection(process.env.JAWSDB_URL);
+}
+
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
