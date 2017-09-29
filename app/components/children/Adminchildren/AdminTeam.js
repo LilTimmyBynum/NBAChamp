@@ -67,7 +67,7 @@ var AdminTeam = React.createClass({
   // Here we describe this component's render method
   render: function() {    
     return (
-    	<div className="container-fluid">
+    	<div className="sameContainer container-fluid">
       <div className="panel panel-default backPanel">
         <div className="panel-heading backPanel smallPadding">
           <div className="panel-title text-center backPanel">Choose an NBA Team</div>

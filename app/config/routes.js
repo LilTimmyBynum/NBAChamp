@@ -47,14 +47,14 @@ module.exports = (
     <Route path="/" component={Main}>
 
     {/* If user selects Admin then show the appropriate component*/}
-      <Route path="Admin" component={Admin}>
+      <Route path="Admin" component={Admin}/>
 
     {/* If user selects League or Team or Player from the Admin window then show the appropriate component*/}
       <Route path="AdminLeague" component={AdminLeague} />
       <Route path="AdminTeam" component={AdminTeam} />    
       <Route path="AdminPlayer" component={AdminPlayer} />
 
-      </Route>
+      
 
     {/* If user selects User then show the appropriate component*/}
       <Route path="User" component={User} />

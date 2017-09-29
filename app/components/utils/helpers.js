@@ -67,14 +67,21 @@ var helper = {
   },
 
   // this gets one Player from the MySQL db
-  getOnePlayer: function() {
-    return axios.get("/oneplayer");
+  getOnePlayer: function(player) {
+    return axios.get("/oneplayer/" + player);
   },
 
-  // This function posts new searches to our database.
-  postHistory: function(location) {
-    return axios.post("/api", { location: location });
+  //this updates a players team
+  postPlayerTeam: function(playerStuff) {
+    console.log("......posting new team.... in helper");
+    console.log(playerStuff);
+    return axios.post("/oneplayer", playerStuff);
   }
+
+  // This function posts new searches to our database.
+  // postHistory: function(location) {
+  //   return axios.post("/api", { location: location });
+  // }
 };
 
 // We export the API helper

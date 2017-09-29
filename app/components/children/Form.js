@@ -6,8 +6,39 @@ var Form = React.createClass({
 
   // Here we set a generic state associated with the text being searched for
   getInitialState: function() {
-    return { term: "" };
+    return { team: "" };
   },
+
+  // The moment the page renders do this.......
+  componentDidMount: function() {
+    console.log("this.props");
+    console.log(this.props);
+
+
+
+
+  },
+
+  // componentDidMount: function() {
+  //   helpers.getOnePlayer().then(function(response) {
+  //     console.log(response);
+  //     if (response !== this.state.onePlayer) {
+  //       console.log("onePlayer", response.data);
+  //       this.setState({ onePlayer: response.data });
+  //         console.log(this.state);
+  //         this.state.teamString = ("./images/NBA_Logos/" + this.state.onePlayer.team  + ".png");
+
+  //           var tempPlayer = this.state.onePlayer.name;
+  //           var realPlayer = tempPlayer.replace(" ", "_");
+  //             console.log(realPlayer);
+
+  //           this.state.playerString = ("./images/NBA_Photos/" + realPlayer  + ".png");
+          
+  //            $("#playerTeam").attr("src", this.state.teamString);
+  //            $("#playerPhoto").attr("src", this.state.playerString); 
+  //     }
+  //   }.bind(this));    
+  // },
 
   // This function will respond to the user input
   handleChange: function(event) {

@@ -549,12 +549,36 @@ app.get("/players", function(req, res) {
     });
 
 
-// get a single player from the db  ...working with hardcoded player
-  app.get("/oneplayer", function(req, res) {
+app.post("/oneplayer/:playerteam", function(req,res) {
+
+    db.player.update(teamPlayer, {
+        where: { 
+        }
+    }).then(function(dbUser) {
+        console.log(dbUser);
+        res.send(dbUser);
+    });
+});
+
+// app.post("/api", function(req, res) {
+//         console.log(req.body);
+//         console.log("The player is ==> " + req.body.yourBurger);
+//         if (req.body.yourBurger != "") {
+//             db.burgertoos.create({
+//                 burger_name: req.body.yourBurger,
+//                 devoured: false
+//             }).then(function() {
+//                 res.redirect("/");
+//             });
+//         };
+//     });
+
+
+// get a single player from the db 
+  app.get("/oneplayer/:player", function(req, res) {
     db.players.findOne({
       where: {
-        // player_name: req.params.id
-        player_name: "Anthony Davis"
+        player_name: req.params.player
       }
     })
     .then(dbPlayer => {
@@ -594,18 +618,12 @@ app.get("/players", function(req, res) {
 
 
 
-    app.post("/api", function(req, res) {
-        console.log(req.body);
-        console.log("The player is ==> " + req.body.yourBurger);
-        if (req.body.yourBurger != "") {
-            db.burgertoos.create({
-                burger_name: req.body.yourBurger,
-                devoured: false
-            }).then(function() {
-                res.redirect("/");
-            });
-        };
-    });
+    
+
+
+
+
+    
 
 
 

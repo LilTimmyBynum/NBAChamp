@@ -13,12 +13,8 @@ import {User} from "./children/User";
 var HomeTeams = require("./children/HomeTeamCarousel");
 var AwayTeams = require("./children/AwayTeamCarousel");
 var Form = require("./children/Form");
-var Results = require("./children/Results");
-var History = require("./children/History");
 
-var Myarticles = require("./children/Myarticles");
-var Scrape = require("./children/Scrape");
-// var Myarticles = require("./children/Myarticles");
+
 
 // include images
 // var Pics = require("../../../public/images/NBA_Logos");
@@ -89,18 +85,7 @@ var Main = React.createClass({
         this.setState({ history: response.data });
       }
     }.bind(this));
-  },
-
-  // // get saved articles from Mongo
-  // getMyArticles: function() {
-  //   helpers.runArticleQuery().then(function(response) {
-  //     console.log(response);
-  //     if (response !== this.state.articles) {
-  //       console.log("Articles", response.data);
-  //       this.setState({ articles: response.data });
-  //     }
-  //   }.bind(this));
-  // },
+  },  
 
   // my page scraping function
   getSavedArticles: function() {
@@ -158,15 +143,19 @@ var Main = React.createClass({
   render: function() {
     return (
       <div className="container myContainer">
-    <div className="jumbotron backPanel">
-        
-        <nav>
-            <div className="nav-wrapper">
-                <a href="#!" className="brand-logo">NBA CHAMP</a>                
-            </div>
-        </nav>
-        <Link to="/Admin"><button className="btn btn-primary btn-lg" onClick="">Admin</button></Link>
-       <Link to="/User"><button className="btn btn-danger btn-lg" onClick={this.pathUser}>User</button></Link>
+    <div id="mainHeader" className="jumbotron backPanel">
+
+      <nav className="myNavBar navbar navbar-inverse bg-inverse">
+            <div className="navbar-nav">
+            <a href="#!" className="brand-logo">NBA CHAMP</a>
+            </div>  
+      </nav>
+
+        <Link to="/AdminLeague"><span className="myButton" onClick="">League</span></Link>
+          <Link to="/AdminTeam"><span className="myButton" onClick="">Team</span></Link>
+          <Link to="/AdminPlayer"><span className="myButton" onClick="">Player</span></Link>
+        <Link to="/Admin"><span className="myButton" onClick="">Admin</span></Link>
+       <Link to="/User"><span className="myButton" onClick={this.pathUser}>User</span></Link>
     </div>
 
     

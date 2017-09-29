@@ -50,7 +50,7 @@ var AdminLeague = React.createClass({
   // Here we describe this component's render method
   render: function() {    
     return (
-    	<div className="container">
+    	<div className="sameContainer container">
       <div className="panel panel-default backPanel">
         <div className="panel-heading backPanel smallPadding">
           <div className="panel-title text-center backPanel">NBA League Overview</div>
