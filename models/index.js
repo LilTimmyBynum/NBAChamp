@@ -9,17 +9,53 @@ var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../app/config/config.json')[env];
 var db        = {};
 
-var mysql = require('mysql');
+// var mysql = require('mysql');
 
-if(process.env.JAWSDB_URL) {
-  db = mysql.createConnection(process.env.JAWSDB_URL);
-}
+// if(process.env.JAWSDB_URL) {
+//   db = mysql.createConnection(process.env.JAWSDB_URL);
+// }
 
-if (config.use_env_variable) {
+
+if (process.env.JAWSDB_URL) {
+    // the application is executed on Heroku ... use the postgres database
+    sequelize = new Sequelize(process.env.JAWSDB_URL, {
+      dialect:  'mysql',
+      protocol: 'mysql',
+      port:     3306,
+      host:     "etdq12exrvdjisg6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+      username: "yrz8d7d3ivnrs6h7",
+      password:   "yscqkr6abxpmtyjq",
+      database: "nba2_db"
+    })
+  } else {
+
+    if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
+
+
+
+
+
+
+    // the application is executed on the local machine ... use mysql
+    // sequelize = new Sequelize('example-app-db', 'root', null)
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 console.log("CONFIG stuff ==> " + config.database + " ==> " + config.username + " ==> " + config.password + " ==> " + config);
 
