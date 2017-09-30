@@ -23,9 +23,9 @@ if (process.env.JAWSDB_URL) {
       protocol: 'mysql',
       port:     3306,
       host:     "etdq12exrvdjisg6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-      username: "yrz8d7d3ivnrs6h7",
-      password:   "yscqkr6abxpmtyjq",
-      database: "nba2_db"
+      username: "qn2xe61vm49ou8ri",
+      password:   "he6ar9pz5qn17hnb",
+      database: "f3w8nrjsvolzzta8"
     })
   } else {
 
