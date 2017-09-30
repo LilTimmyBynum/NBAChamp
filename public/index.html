@@ -186,19 +186,46 @@ button {
     background-image: url(../images/nbabackground.jpg);
 }*/
 
-/*.container {
+.container {
   width: 90%;
-}*/
+}
 
+#homeCarousel {
+  overflow: visible;
+  transform: rotate(0deg);
+  margin:0px;
+}
 
+#awayCarousel {
+  overflow: visible;
+  transform: rotate(0deg);
+  margin: 0px;
+}
 
 .carousel .carousel-item {
       width: 175px;
     }
 
+#homeTeamText {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#awayTeamText {
+  width: 50%;
+  margin: 0 auto;
+}
+
 .versus {
     margin-right: auto;
-    width: 100px;
+    margin-top: 170px;
+    width: 150px;
+}
+
+#vsImage {
+  margin-right: auto;
+    margin-top: 170px;
+    width: 150px;
 }
 
 .jumbotron {    
@@ -238,70 +265,62 @@ imgSmall {
   <script src="bundle.js"></script>
       <script>
 
-      // $(document).ready(function(){
-      //   $('.carousel').carousel();
-      // });
+      $(document).ready(function(){
+        $('.carousel').carousel();
+      });
 
-    // $(document).ready(function(){
-    //   $('.carousel').carousel({indicators: false});
-    //   $('.carousel.carousel-slider').carousel({fullWidth: false});
-    //   $('.carousel.carousel-slider').carousel({noWrap: true});
-    // });
+    $(document).ready(function(){
+      $('.carousel').carousel({indicators: false});
+      $('.carousel.carousel-slider').carousel({fullWidth: false});
+      $('.carousel.carousel-slider').carousel({noWrap: true});
+    });
 
-    // $('.carousel-item').click(function(){
-    // console.log($(this).attr("id"));
-    // console.log($(this).parent().attr("id"));      
-    //   if($(this).parent().attr("id") == "awayCarousel" ){
-    //     $("#awayTeamText").text($(this).attr("id"));
-    //   }else{
-    //     $("#homeTeamText").text($(this).attr("id"));
-    //   };
+    $('.carousel-item').click(function(){
+    console.log($(this).attr("id"));
+    console.log($(this).parent().attr("id"));      
+      if($(this).parent().attr("id") == "awayCarousel" ){
+        $("#awayTeamText").text($(this).attr("id"));
+      }else{
+        $("#homeTeamText").text($(this).attr("id"));
+      };
 
-    // });  
+    });  
 
-    // $('#vsImage').click(function(){      
-    //   console.log(teamTwoStr);
-
-
-
-
-
-      // <form action="/" method="POST" class="myTitle">
-      //               <input type="text" name="myTeams">
-      //               <button type="submit">Submit</button>
-      //           </form>
+    $('#vsImage').click(function(){      
+      console.log(teamTwoStr);
 
 
 
 
 
-    // });
+
+    });
 
 
-//   $(this).each(function() {
-//   $.each(this.attributes, function() {
-//     // this.attributes is not a plain object, but an array
-//     // of attribute nodes, which contain both the name and value
-//     if(this.specified) {
-//       console.log(this.name, this.value);
-//     }
-//   });
-// }); 
+  $(this).each(function() {
+  $.each(this.attributes, function() {
+    // this.attributes is not a plain object, but an array
+    // of attribute nodes, which contain both the name and value
+    if(this.specified) {
+      console.log(this.name, this.value);
+    }
+  });
+}); 
 
 
-//     // Next slide
-// $('.carousel').carousel('next');
-// $('.carousel').carousel('next', 3); // Move next n times.
+    // Next slide
+$('.carousel').carousel('next');
+$('.carousel').carousel('next', 3); // Move next n times.
 
-// // Previous slide
-// $('.carousel').carousel('prev');
-// $('.carousel').carousel('prev', 4); // Move prev n times.
+// Previous slide
+$('.carousel').carousel('prev');
+$('.carousel').carousel('prev', 4); // Move prev n times.
 
-// // Set to nth slide
-// $('.carousel').carousel('set', 4);
+// Set to nth slide
+$('.carousel').carousel('set', 4);
 
-// // Destroy carousel
-// $('.carousel').carousel('destroy');
+// Destroy carousel
+$('.carousel').carousel('destroy');
 </script>
 	
 </body>

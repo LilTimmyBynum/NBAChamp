@@ -28,15 +28,14 @@ var Main = require("../components/Main");
 // var History = require("../components/children/History");
 
 var Admin = require("../components/children/Admin");
+var User = require("../components/children/User");
+var HomeTeam = require("../components/children/HomeTeamCarousel");
+
 var AdminLeague = require("../components/children/Adminchildren/AdminLeague");
 var AdminTeam = require("../components/children/Adminchildren/AdminTeam");
 var AdminPlayer = require("../components/children/Adminchildren/AdminPlayer");
 
 
-
-
-
-var User = require("../components/children/User");
 // import {User} from "../components/children/User";   // this doesn't work.....
 
 // Export the Routes
@@ -58,6 +57,9 @@ module.exports = (
 
     {/* If user selects User then show the appropriate component*/}
       <Route path="User" component={User} />
+
+
+      
 
              
       

@@ -5,6 +5,9 @@ var React = require("react");
 // Helper for making AJAX requests to our API
 var helpers = require("../utils/helpers");
 
+var HomeTeamCarousel = require("./HomeTeamCarousel.js");
+var AwayTeamCarousel = require("./AwayTeamCarousel.js");
+
 // This is the History component. It will be used to show a log of  recent searches.
 var User = React.createClass({
   getInitialState: function() {
@@ -30,14 +33,48 @@ var User = React.createClass({
   // Here we describe this component's render method
   render: function() {    
     return (
-      <div className="panel panel-default ">
-        <div className="panel-heading">
-          <h3 className="panel-title text-center">User stuff goes in here</h3>
-        </div>
+      <div>
+
+      
+
+      <div className="row">
+      
+      <div className="col-xs-4">
+        <HomeTeamCarousel />
       </div>
+
+
+      <div className="col-xs-1">
+      </div>
+
+      <div className="col-xs-2">
+      <img id="vsImage" src="./images/package.png"/>
+      </div>
+
+      <div className="col-xs-1">
+      </div>
+
+      <div className="col-xs-4">
+      <AwayTeamCarousel />
+      </div>
+      </div>
+
+
+      </div>
+
+
     );
   }
 });
 
 // Export the component back for use in other files
 module.exports = User;
+
+
+
+
+// <div className="panel panel-default ">
+//         <div className="panel-heading">
+//           <h3 className="panel-title text-center">User stuff goes in here</h3>
+//         </div>
+//       </div>

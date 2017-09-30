@@ -149,11 +149,11 @@ var AdminPlayer = React.createClass({
 
 
 
-  // gets the team as 'data' from the Logos child component
-  // getTeam: function(data){
-  //   this.setState({childData: data});
-  //   console.log(data);
-  // },
+  //gets the team as 'data' from the Logos child component
+  getTeam: function(data){
+    this.setState({childData: data});
+    console.log(data);
+  },
 
   // This function will respond to the user input
   handleChange: function(event) {

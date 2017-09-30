@@ -10,22 +10,56 @@ var helpers = require("../utils/helpers");
 var HomeTeamCarousel = React.createClass({
 
 
-// getInitialState: function() {
-//     return { searchTerm: "", results: "", history: [], articles: [] };
-//   },
+getInitialState: function() {
+    return { searchTerm: "", results: "", history: [], articles: [] };
+  },
 
 
-// // The moment the page renders get the History
-//   componentDidMount: function() {
-//     // Get the latest history.
-//     helpers.getMyArticles().then(function(response) {
-//       console.log(response);
-//       if (response !== this.state.articles) {
-//         console.log("Articles", response.data);
-//         this.setState({ articles: response.data });
-//       }
-//     }.bind(this));
-//   },  
+// The moment the page renders get the History
+  componentDidMount: function() {
+
+    console.log("carousel mounted ................");
+
+    $("#homeCarousel").carousel();
+    $("#homeCarousel").carousel({indicators: false});
+      $('.carousel.carousel-slider').carousel({fullWidth: false});
+      $('.carousel.carousel-slider').carousel({noWrap: true});
+
+
+      console.log($("#homeCarousel").attr("id"));
+      console.log($("#homeCarousel").css("display"));
+
+      $("#homeCarousel").show();
+
+
+      $("#homeCarousel .carousel-item").click(function(){
+    console.log($(this).attr("id"));
+    console.log($(this).parent().attr("id"));      
+      if($(this).parent().attr("id") == "homeCarousel" ){
+        $("#homeTeamText").text($(this).attr("id"));
+      }else{
+        // $("#homeTeamText").text($(this).attr("id"));
+      };
+
+    });
+
+
+
+
+
+
+
+    // Get the latest history.
+    // helpers.getMyArticles().then(function(response) {
+    //   console.log(response);
+    //   if (response !== this.state.articles) {
+    //     console.log("Articles", response.data);
+    //     this.setState({ articles: response.data });
+    //   }
+    // }.bind(this));
+
+    console.log("carousel done..........................");
+  },  
 
 
 
@@ -57,15 +91,16 @@ var HomeTeamCarousel = React.createClass({
   // },
 
 
-  // Here we describe this component's render method
+  //Here we describe this component's render method
   render: function() {
     return (
 
-    	<div className="row">
-            <div className="col xs6">
-                <div className="carousel" id="awayCarousel">
+    	<div >
+
+
+            
+                <div className="carousel" id="homeCarousel">
                     <a id="Blazers" className="carousel-item" href="#Blazers!"><img src="./images/NBA_Logos/Blazers.png"/></a>
-                    <a id="Blazers" className="carousel-item" href="#Blazers!"><img src="./images/NBA_Logos.Blazers.png"/></a>
                     <a id="Bucks" className="carousel-item" href="#Bucks!"><img src="./images/NBA_Logos/Bucks.png"/></a>
                     <a id="Bulls" className="carousel-item" href="#Bulls!"><img src="./images/NBA_Logos/Bulls.png"/></a>
                     <a id="Cavaliers" className="carousel-item" href="#Cavaliers!"><img src="./images/NBA_Logos/Cavaliers.png"/></a>
@@ -95,17 +130,18 @@ var HomeTeamCarousel = React.createClass({
                     <a id="Twolves" className="carousel-item" href="#Twolves!"><img src="./images/NBA_Logos/Twolves.png"/></a>
                     <a id="Warriors" className="carousel-item" href="#Warriors!"><img src="./images/NBA_Logos/Warriors.png"/></a>
                     <a id="Wizards" className="carousel-item" href="#Wizards!"><img src="./images/NBA_Logos/Wizards.png"/></a>
-                    <a id="East" className="carousel-item" href="#East!"><img src="./images/NBA_Logos/East.png"/></a>
-                    <a id="West" className="carousel-item" href="#West!"><img src="./images/NBA_Logos/West.png"/></a>
+                    
                 </div>
-            </div>
-            <div className="col xs6">
+
+
                 <div className="card blue-grey darken-1">
                     <div className="card-content white-text">
-                        <p id="awayTeamText">home team</p>
+                        <div id="homeTeamText">home team</div>
                     </div>
                 </div>
-            </div>
+            
+                
+            
         </div>
 
 
@@ -119,3 +155,7 @@ var HomeTeamCarousel = React.createClass({
 
 // Export the component back for use in other files
 module.exports = HomeTeamCarousel;
+
+
+//<a id="East" className="carousel-item" href="#East!"><img src="./images/NBA_Logos/East.png"/></a>
+//<a id="West" className="carousel-item" href="#West!"><img src="./images/NBA_Logos/West.png"/></a>
