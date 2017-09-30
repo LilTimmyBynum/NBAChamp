@@ -282,9 +282,9 @@ var AdminPlayer = React.createClass({
 
 
       <div className="col xs6">
-      <div className="panel panel-default">
+      <div className="panel backPanel">
         <div className="panel-heading">
-          <h3 className="panel-title text-center">Player query</h3>
+          <h3 className="panel-title text-center backPanel">Player query</h3>
         </div>
         <div className="panel-body text-center">
           <form onSubmit={this.handleSubmit}>
@@ -292,7 +292,7 @@ var AdminPlayer = React.createClass({
           {/* <input value={this.state.term} type="text" className="form-control" id="playerInput" onChange={this.handleChange} required placeholder="Enter player name"  */}
                <input type="text" className="form-control" id="playerInput" onChange={this.handleChange} required placeholder="Enter player name"/>
               <br />
-              <button className="btn btn-primary" type="submit">Submit</button>
+              <button className="btn backPanel" type="submit">Submit</button>
             </div>
           </form>
         </div>

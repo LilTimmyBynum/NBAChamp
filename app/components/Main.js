@@ -154,7 +154,7 @@ var Main = React.createClass({
         <Link to="/AdminLeague"><span className="myButton" onClick="">League</span></Link>
           <Link to="/AdminTeam"><span className="myButton" onClick="">Team</span></Link>
           <Link to="/AdminPlayer"><span className="myButton" onClick="">Player</span></Link>
-        <Link to="/Admin"><span className="myButton" onClick="">Admin</span></Link>
+        <Link to=""><span className="myButton" onClick="">Admin</span></Link>
        <Link to="/User"><span className="myButton" onClick={this.pathUser}>User</span></Link>
     </div>
 
